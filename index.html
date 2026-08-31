@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="NexusAI — The next-generation AI infrastructure platform for the builders of tomorrow."
+    />
+    <meta
+      name="keywords"
+      content="AI, SaaS, machine learning, platform, startup, neural, cloud"
+    />
+    <meta name="author" content="NexusAI" />
+    <title>NexusAI — Build the Future</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons (Lucide via CDN) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ░░ LOADING SCREEN ░░ -->
+    <div id="loader" aria-hidden="true">
+      <div class="loader-inner">
+        <svg class="loader-logo" viewBox="0 0 60 60" fill="none">
+          <polygon
+            class="hex"
+            points="30,2 55,16 55,44 30,58 5,44 5,16"
+            stroke="var(--accent)"
+            stroke-width="2"
+            fill="none"
+          />
+          <text
+            x="50%"
+            y="54%"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            fill="var(--accent)"
+            font-size="18"
+            font-family="Syne"
+            font-weight="800"
+          >
+            N
+          </text>
+        </svg>
+        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+        <p class="loader-label mono">Initializing NexusAI…</p>
+      </div>
+    </div>
+
+    <!-- ░░ SCROLL PROGRESS ░░ -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ░░ CUSTOM CURSOR ░░ -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ░░ MOUSE GLOW ░░ -->
+    <div id="mouse-glow" aria-hidden="true"></div>
+
+    <!-- ░░ NAVBAR ░░ -->
+    <header id="navbar" role="banner">
+      <nav class="nav-container" aria-label="Primary navigation">
+        <a href="#hero" class="nav-logo" aria-label="NexusAI Home">
+          <svg viewBox="0 0 60 60" fill="none" width="36" height="36">
+            <polygon
+              class="hex"
+              points="30,2 55,16 55,44 30,58 5,44 5,16"
+              stroke="var(--accent)"
+              stroke-width="2"
+              fill="none"
+            />
+            <text
+              x="50%"
+              y="54%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+              fill="var(--accent)"
+              font-size="18"
+              font-family="Syne"
+              font-weight="800"
+            >
+              N
+            </text>
+          </svg>
+          <span>NexusAI</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#stats" class="nav-link">Stats</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#portfolio" class="nav-link">Work</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button
+            id="theme-toggle"
+            aria-label="Toggle theme"
+            title="Toggle light/dark mode"
+          >
+            <i data-lucide="sun" class="icon-sun"></i>
+            <i data-lucide="moon" class="icon-moon"></i>
+          </button>
+          <a href="#contact" class="btn btn-ghost">Log in</a>
+          <a href="#pricing" class="btn btn-primary">Get Started</a>
+          <button
+            id="mobile-menu-btn"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        role="dialog"
+        aria-label="Mobile navigation"
+        aria-modal="true"
+      >
+        <ul role="list">
+          <li><a href="#features" class="mobile-link">Features</a></li>
+          <li><a href="#stats" class="mobile-link">Stats</a></li>
+          <li><a href="#about" class="mobile-link">About</a></li>
+          <li><a href="#portfolio" class="mobile-link">Work</a></li>
+          <li><a href="#pricing" class="mobile-link">Pricing</a></li>
+          <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+        <div class="mobile-actions">
+          <a href="#contact" class="btn btn-ghost w-full">Log in</a>
+          <a href="#pricing" class="btn btn-primary w-full">Get Started →</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ░░ HERO ░░ -->
+      <section id="hero" aria-labelledby="hero-heading">
+        <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+        <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+        <div class="hero-content reveal">
+          <div class="hero-badge mono">
+            <span class="badge-dot"></span>
+            v2.4 — Now with Nexus Neural Engine™
+          </div>
+
+          <h1 id="hero-heading" class="hero-title">
+            Build AI products<br />
+            at <span class="gradient-text" id="typed-text"></span>
+            <span class="cursor-blink" aria-hidden="true">|</span>
+          </h1>
+
+          <p class="hero-sub">
+            NexusAI gives your team the infrastructure, APIs, and intelligence
+            layer to ship AI-native applications 10× faster — without the ops
+            overhead.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary btn-lg glow-btn">
+              Start for Free
+              <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="#portfolio" class="btn btn-ghost btn-lg">
+              <i data-lucide="play-circle"></i>
+              Watch Demo
+            </a>
+          </div>
+
+          <div class="hero-social-proof">
+            <div class="avatars" aria-label="User avatars">
+              <div class="avatar" style="background: var(--accent)">A</div>
+              <div class="avatar" style="background: #e879f9">B</div>
+              <div class="avatar" style="background: #38bdf8">C</div>
+              <div class="avatar" style="background: #34d399">D</div>
+              <div class="avatar" style="background: #fb923c">E</div>
+            </div>
+            <p><strong>12,400+</strong> developers building with NexusAI</p>
+          </div>
+        </div>
+
+        <!-- Floating Cards -->
+        <div class="hero-float-cards" aria-hidden="true">
+          <div class="float-card float-card-1 glass">
+            <i data-lucide="zap" class="fc-icon"></i>
+            <div>
+              <p class="fc-val">99.99%</p>
+              <p class="fc-label mono">Uptime SLA</p>
+            </div>
+          </div>
+          <div class="float-card float-card-2 glass">
+            <i data-lucide="trending-up" class="fc-icon"></i>
+            <div>
+              <p class="fc-val">10×</p>
+              <p class="fc-label mono">Faster Deployment</p>
+            </div>
+          </div>
+          <div class="float-card float-card-3 glass">
+            <i data-lucide="shield-check" class="fc-icon"></i>
+            <div>
+              <p class="fc-val">SOC 2</p>
+              <p class="fc-label mono">Certified Security</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+          <span class="mono">scroll</span>
+        </div>
+      </section>
+
+      <!-- ░░ LOGOS MARQUEE ░░ -->
+      <section class="logos-section" aria-label="Trusted by">
+        <p class="logos-label mono">Trusted by teams at</p>
+        <div class="marquee-wrap" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Vercel</span><span>Stripe</span><span>Linear</span
+            ><span>Notion</span> <span>Figma</span><span>Loom</span
+            ><span>Pitch</span><span>Railway</span> <span>Supabase</span
+            ><span>PlanetScale</span><span>Clerk</span><span>Resend</span>
+            <!-- duplicate for seamless loop -->
+            <span>Vercel</span><span>Stripe</span><span>Linear</span
+            ><span>Notion</span> <span>Figma</span><span>Loom</span
+            ><span>Pitch</span><span>Railway</span> <span>Supabase</span
+            ><span>PlanetScale</span><span>Clerk</span><span>Resend</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ FEATURES ░░ -->
+      <section id="features" aria-labelledby="features-heading">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="tag mono">Features</span>
+            <h2 id="features-heading">
+              Everything you need.<br />Nothing you don't.
+            </h2>
+            <p>
+              Composable primitives and opinionated defaults so your team can
+              focus on shipping features, not infrastructure.
+            </p>
+          </div>
+
+          <!-- Bento Grid -->
+          <div class="bento-grid reveal-stagger">
+            <article class="bento-card bento-large card-3d" data-tilt>
+              <div class="bento-icon"><i data-lucide="cpu"></i></div>
+              <h3>Neural Inference Engine</h3>
+              <p>
+                Sub-10ms latency inference on any model. Auto-scaling to
+                billions of requests per month with zero cold starts.
+              </p>
+              <div class="bento-visual bento-terminal mono">
+                <div class="term-bar">
+                  <span></span><span></span><span></span>
+                </div>
+                <p>
+                  <span class="term-prompt">›</span> nexus deploy --model
+                  llama-3-70b
+                </p>
+                <p><span class="term-ok">✓</span> Model loaded in 847ms</p>
+                <p>
+                  <span class="term-ok">✓</span> Endpoint: api.nexus.ai/v1/infer
+                </p>
+                <p>
+                  <span class="term-ok">✓</span> P99 latency:
+                  <span class="term-accent">7.2ms</span>
+                </p>
+                <p class="term-cursor mono">_</p>
+              </div>
+            </article>
+
+            <article class="bento-card card-3d" data-tilt>
+              <div class="bento-icon"><i data-lucide="git-branch"></i></div>
+              <h3>Vector DB</h3>
+              <p>
+                Built-in high-dimensional vector store for RAG, semantic search,
+                and embeddings at any scale.
+              </p>
+              <div class="bento-dots" aria-hidden="true">
+                <div class="dot-grid"></div>
+              </div>
+            </article>
+
+            <article class="bento-card card-3d" data-tilt>
+              <div class="bento-icon"><i data-lucide="shield"></i></div>
+              <h3>AI Guardrails</h3>
+              <p>
+                Policy enforcement, content filtering, and audit logs built into
+                every request.
+              </p>
+              <div class="shield-ring" aria-hidden="true">
+                <div class="ring r1"></div>
+                <div class="ring r2"></div>
+                <div class="ring r3"></div>
+              </div>
+            </article>
+
+            <article class="bento-card bento-wide card-3d" data-tilt>
+              <div class="bento-icon"><i data-lucide="workflow"></i></div>
+              <h3>Agent Orchestration</h3>
+              <p>
+                Build multi-step AI workflows with our visual DAG editor. Chain
+                models, tools, and APIs with zero boilerplate.
+              </p>
+              <div class="workflow-visual" aria-hidden="true">
+                <div class="wf-node wf-start">Input</div>
+                <div class="wf-arrow">→</div>
+                <div class="wf-node wf-mid">LLM</div>
+                <div class="wf-arrow">→</div>
+                <div class="wf-node wf-mid">Tools</div>
+                <div class="wf-arrow">→</div>
+                <div class="wf-node wf-end">Output</div>
+              </div>
+            </article>
+
+            <article class="bento-card card-3d" data-tilt>
+              <div class="bento-icon"><i data-lucide="bar-chart-2"></i></div>
+              <h3>Observability</h3>
+              <p>Traces, logs, evals, and cost dashboards for every AI call.</p>
+              <div class="mini-chart" aria-hidden="true">
+                <div class="bar" style="height: 40%"></div>
+                <div class="bar" style="height: 65%"></div>
+                <div class="bar" style="height: 50%"></div>
+                <div class="bar" style="height: 85%"></div>
+                <div class="bar" style="height: 72%"></div>
+                <div class="bar" style="height: 90%"></div>
+                <div class="bar" style="height: 60%"></div>
+              </div>
+            </article>
+
+            <article class="bento-card card-3d" data-tilt>
+              <div class="bento-icon"><i data-lucide="key"></i></div>
+              <h3>Unified API Keys</h3>
+              <p>
+                One key to access OpenAI, Anthropic, Gemini, and 40+ model
+                providers.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ STATS ░░ -->
+      <section id="stats" aria-labelledby="stats-heading" class="stats-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="tag mono">By the Numbers</span>
+            <h2 id="stats-heading">The scale speaks<br />for itself.</h2>
+          </div>
+          <div class="stats-grid reveal-stagger">
+            <div class="stat-card glass">
+              <span class="stat-num" data-target="12400" data-suffix="+"
+                >0</span
+              >
+              <span class="stat-label">Developers</span>
+            </div>
+            <div class="stat-card glass">
+              <span
+                class="stat-num"
+                data-target="4200000000"
+                data-suffix="+"
+                data-format="B"
+                >0</span
+              >
+              <span class="stat-label">API Requests / Month</span>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-num" data-target="99" data-suffix=".99%"
+                >0</span
+              >
+              <span class="stat-label">Uptime SLA</span>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-num" data-target="7" data-suffix="ms">0</span>
+              <span class="stat-label">Median Latency</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ ABOUT ░░ -->
+      <section id="about" aria-labelledby="about-heading">
+        <div class="container about-container">
+          <div class="about-visual reveal">
+            <div class="about-orb" aria-hidden="true"></div>
+            <div class="about-code glass mono">
+              <div class="term-bar">
+                <span></span><span></span><span></span>
+              </div>
+              <pre><span class="term-accent">import</span> NexusAI <span class="term-accent">from</span> <span class="term-ok">'@nexus/sdk'</span>;
+
+<span class="term-accent">const</span> nexus = <span class="term-ok">new</span> NexusAI({
+  apiKey: process.env.NEXUS_KEY,
+  region: <span class="term-ok">'us-east-1'</span>,
+});
+
+<span class="term-accent">const</span> result = <span class="term-accent">await</span> nexus.infer({
+  model: <span class="term-ok">'nexus-ultra'</span>,
+  prompt: userMessage,
+  guardrails: <span class="term-ok">true</span>,
+});</pre>
+            </div>
+          </div>
+
+          <div class="about-content reveal">
+            <span class="tag mono">About NexusAI</span>
+            <h2 id="about-heading">
+              We're building the nervous system for AI applications.
+            </h2>
+            <p>
+              Founded in 2022, NexusAI emerged from a simple frustration:
+              building AI products was too hard, too slow, and too expensive.
+              We've raised $47M to fix that.
+            </p>
+            <p>
+              Our team of 80+ researchers and engineers — alumni of DeepMind,
+              Google Brain, OpenAI, and Stripe — are obsessed with one thing:
+              helping developers ship AI-native software with confidence.
+            </p>
+            <ul class="about-list" role="list">
+              <li>
+                <i data-lucide="check-circle"></i> Remote-first team across 18
+                countries
+              </li>
+              <li>
+                <i data-lucide="check-circle"></i> $47M raised from Sequoia,
+                a16z, YC
+              </li>
+              <li>
+                <i data-lucide="check-circle"></i> SOC 2 Type II, GDPR, HIPAA
+                compliant
+              </li>
+              <li>
+                <i data-lucide="check-circle"></i> Open-source core with
+                enterprise offerings
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-primary"
+              >Meet the Team <i data-lucide="arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ PORTFOLIO / SHOWCASE ░░ -->
+      <section id="portfolio" aria-labelledby="portfolio-heading">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="tag mono">Case Studies</span>
+            <h2 id="portfolio-heading">Built on NexusAI.</h2>
+            <p>See what leading teams have shipped using our platform.</p>
+          </div>
+
+          <div class="portfolio-grid reveal-stagger">
+            <article class="portfolio-card card-3d" data-tilt>
+              <div
+                class="portfolio-img"
+                style="--c1: #7c3aed; --c2: #4f46e5"
+                role="img"
+                aria-label="FinanceGPT project preview"
+              >
+                <div class="port-icon"><i data-lucide="line-chart"></i></div>
+              </div>
+              <div class="portfolio-body">
+                <span class="tag mono">Fintech</span>
+                <h3>FinanceGPT</h3>
+                <p>
+                  AI-powered financial analyst that processes 10M documents
+                  daily and generates actionable investment insights.
+                </p>
+                <div class="portfolio-meta">
+                  <span class="mono">↑ 340% analyst efficiency</span>
+                  <a
+                    href="#"
+                    class="btn-link"
+                    aria-label="View FinanceGPT case study"
+                    >View Case →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card-3d" data-tilt>
+              <div
+                class="portfolio-img"
+                style="--c1: #0ea5e9; --c2: #06b6d4"
+                role="img"
+                aria-label="MedAssist project preview"
+              >
+                <div class="port-icon"><i data-lucide="activity"></i></div>
+              </div>
+              <div class="portfolio-body">
+                <span class="tag mono">Healthcare</span>
+                <h3>MedAssist</h3>
+                <p>
+                  Clinical documentation assistant that reduces physician
+                  burnout by automating 80% of note-taking.
+                </p>
+                <div class="portfolio-meta">
+                  <span class="mono">↑ 4hrs saved per physician/day</span>
+                  <a
+                    href="#"
+                    class="btn-link"
+                    aria-label="View MedAssist case study"
+                    >View Case →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card-3d" data-tilt>
+              <div
+                class="portfolio-img"
+                style="--c1: #f59e0b; --c2: #ef4444"
+                role="img"
+                aria-label="CodeSense project preview"
+              >
+                <div class="port-icon"><i data-lucide="code-2"></i></div>
+              </div>
+              <div class="portfolio-body">
+                <span class="tag mono">DevTools</span>
+                <h3>CodeSense</h3>
+                <p>
+                  Intelligent code review platform that catches security
+                  vulnerabilities and suggests optimizations in real time.
+                </p>
+                <div class="portfolio-meta">
+                  <span class="mono">↓ 60% critical bugs in prod</span>
+                  <a
+                    href="#"
+                    class="btn-link"
+                    aria-label="View CodeSense case study"
+                    >View Case →</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ TESTIMONIALS ░░ -->
+      <section
+        id="testimonials"
+        aria-labelledby="testimonials-heading"
+        class="testimonials-section"
+      >
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="tag mono">Testimonials</span>
+            <h2 id="testimonials-heading">Loved by builders<br />worldwide.</h2>
+          </div>
+
+          <div
+            class="testimonial-slider reveal"
+            role="region"
+            aria-label="Customer testimonials"
+            aria-live="polite"
+          >
+            <div class="testimonial-track" id="testimonial-track">
+              <article class="testimonial-card glass">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <blockquote>
+                  "NexusAI took us from prototype to 100k users in 6 weeks. The
+                  inference speed and reliability are unreal — we've never had a
+                  single outage."
+                </blockquote>
+                <div class="testimonial-author">
+                  <div class="avatar" style="background: var(--accent)">S</div>
+                  <div>
+                    <strong>Sarah Chen</strong>
+                    <span class="mono">CTO, Synthesis Labs</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="testimonial-card glass">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <blockquote>
+                  "We replaced three different ML infra vendors with NexusAI and
+                  cut our monthly AI spend by 62%. The unified API alone was
+                  worth it."
+                </blockquote>
+                <div class="testimonial-author">
+                  <div class="avatar" style="background: #e879f9">M</div>
+                  <div>
+                    <strong>Marcus Rivera</strong>
+                    <span class="mono">Head of AI, Kaleidoscope</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="testimonial-card glass">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <blockquote>
+                  "The guardrails and observability features are exactly what
+                  our compliance team needed. We shipped our HIPAA-compliant AI
+                  product in 8 days."
+                </blockquote>
+                <div class="testimonial-author">
+                  <div class="avatar" style="background: #34d399">P</div>
+                  <div>
+                    <strong>Priya Nair</strong>
+                    <span class="mono">VP Engineering, MedFlow</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="testimonial-card glass">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <blockquote>
+                  "The developer experience is leagues ahead of any other AI
+                  platform. The SDK, the docs, the Discord support — everything
+                  is first class."
+                </blockquote>
+                <div class="testimonial-author">
+                  <div class="avatar" style="background: #38bdf8">J</div>
+                  <div>
+                    <strong>James Okafor</strong>
+                    <span class="mono">Founder, Archetype</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="slider-controls"
+              role="group"
+              aria-label="Testimonial navigation"
+            >
+              <button id="prev-btn" aria-label="Previous testimonial">
+                <i data-lucide="chevron-left"></i>
+              </button>
+              <div
+                class="slider-dots"
+                id="slider-dots"
+                role="tablist"
+                aria-label="Testimonial indicators"
+              ></div>
+              <button id="next-btn" aria-label="Next testimonial">
+                <i data-lucide="chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ PRICING ░░ -->
+      <section id="pricing" aria-labelledby="pricing-heading">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="tag mono">Pricing</span>
+            <h2 id="pricing-heading">Simple, transparent<br />pricing.</h2>
+            <p>Start free. Scale to billions. No surprises.</p>
+            <div
+              class="pricing-toggle reveal"
+              role="group"
+              aria-label="Billing period"
+            >
+              <span>Monthly</span>
+              <button
+                id="billing-toggle"
+                aria-pressed="false"
+                aria-label="Switch to annual billing"
+              >
+                <span class="toggle-thumb"></span>
+              </button>
+              <span>Annual <em class="save-badge">Save 20%</em></span>
+            </div>
+          </div>
+
+          <div class="pricing-grid reveal-stagger">
+            <article class="pricing-card glass card-3d" data-tilt>
+              <div class="pricing-header">
+                <h3>Starter</h3>
+                <p>For indie developers and early-stage projects.</p>
+              </div>
+              <div class="pricing-price">
+                <span class="price-val" data-monthly="0" data-annual="0"
+                  >$0</span
+                >
+                <span class="price-period mono">/month</span>
+              </div>
+              <ul class="pricing-features" role="list">
+                <li><i data-lucide="check"></i> 1M tokens / month</li>
+                <li><i data-lucide="check"></i> 3 models included</li>
+                <li><i data-lucide="check"></i> Community support</li>
+                <li><i data-lucide="check"></i> Basic observability</li>
+                <li class="dim"><i data-lucide="x"></i> Agent Orchestration</li>
+                <li class="dim"><i data-lucide="x"></i> SLA Guarantee</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost w-full"
+                >Get Started Free</a
+              >
+            </article>
+
+            <article
+              class="pricing-card pricing-featured glass card-3d"
+              data-tilt
+              aria-label="Most popular plan"
+            >
+              <div class="popular-badge mono">Most Popular</div>
+              <div class="pricing-header">
+                <h3>Pro</h3>
+                <p>For growing teams shipping production AI.</p>
+              </div>
+              <div class="pricing-price">
+                <span class="price-val" data-monthly="79" data-annual="63"
+                  >$79</span
+                >
+                <span class="price-period mono">/month</span>
+              </div>
+              <ul class="pricing-features" role="list">
+                <li><i data-lucide="check"></i> 50M tokens / month</li>
+                <li><i data-lucide="check"></i> 40+ models</li>
+                <li><i data-lucide="check"></i> Priority support</li>
+                <li><i data-lucide="check"></i> Full observability</li>
+                <li><i data-lucide="check"></i> Agent Orchestration</li>
+                <li><i data-lucide="check"></i> 99.9% SLA</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary w-full glow-btn"
+                >Start Pro Trial</a
+              >
+            </article>
+
+            <article class="pricing-card glass card-3d" data-tilt>
+              <div class="pricing-header">
+                <h3>Enterprise</h3>
+                <p>For large teams with custom compliance needs.</p>
+              </div>
+              <div class="pricing-price">
+                <span class="price-val">Custom</span>
+              </div>
+              <ul class="pricing-features" role="list">
+                <li><i data-lucide="check"></i> Unlimited tokens</li>
+                <li><i data-lucide="check"></i> Private model deployment</li>
+                <li><i data-lucide="check"></i> Dedicated support & SRE</li>
+                <li><i data-lucide="check"></i> Custom guardrails</li>
+                <li><i data-lucide="check"></i> HIPAA / SOC 2 / GDPR</li>
+                <li><i data-lucide="check"></i> 99.99% SLA</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost w-full">Talk to Sales</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ FAQ ░░ -->
+      <section id="faq" aria-labelledby="faq-heading">
+        <div class="container faq-container">
+          <div class="section-header reveal">
+            <span class="tag mono">FAQ</span>
+            <h2 id="faq-heading">Common questions,<br />honest answers.</h2>
+          </div>
+
+          <div class="faq-list reveal" role="list">
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>What models does NexusAI support?</span>
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-a" hidden>
+                <p>
+                  NexusAI supports 40+ models including all major providers:
+                  OpenAI (GPT-4o, o1), Anthropic (Claude 3.5), Google (Gemini
+                  1.5 Pro), Meta (Llama 3), Mistral, and many open-source
+                  models. New models are added within 24 hours of release.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>How does billing work?</span>
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-a" hidden>
+                <p>
+                  You're billed based on your plan's included token allocation
+                  plus any overage. Overages are charged at our standard
+                  per-token rates, which are transparent in your dashboard.
+                  You'll always see your spend in real time and can set budget
+                  alerts.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>Is my data used to train models?</span>
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-a" hidden>
+                <p>
+                  No. Your data and prompts are never used to train any models.
+                  All inference is zero-retention by default — we don't log your
+                  request payloads. Enterprise customers can enable logging for
+                  their own audit purposes.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>What does the 99.99% SLA actually mean?</span>
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-a" hidden>
+                <p>
+                  Our Enterprise SLA guarantees less than 52 minutes of downtime
+                  per year. If we miss that, you receive service credits
+                  automatically — no need to ask. We maintain this through
+                  multi-region redundancy and active-active failover across 6
+                  global regions.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>Can I bring my own model weights?</span>
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-a" hidden>
+                <p>
+                  Yes! Enterprise plans support private model deployment. Upload
+                  your fine-tuned weights and we'll serve them with the same
+                  infrastructure, APIs, and observability as our hosted models —
+                  with full data isolation in a VPC.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░ CONTACT ░░ -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <div class="container contact-container">
+          <div class="contact-info reveal">
+            <span class="tag mono">Contact</span>
+            <h2 id="contact-heading">Let's build something extraordinary.</h2>
+            <p>
+              Have a question, want a demo, or need a custom enterprise quote?
+              We respond within 2 hours.
+            </p>
+            <ul class="contact-meta" role="list">
+              <li><i data-lucide="mail"></i> hello@nexus.ai</li>
+              <li>
+                <i data-lucide="map-pin"></i> San Francisco, CA · Remote-first
+              </li>
+              <li><i data-lucide="clock"></i> Response time &lt; 2 hours</li>
+            </ul>
+            <div class="contact-socials" aria-label="Social links">
+              <a href="#" aria-label="Twitter/X"
+                ><i data-lucide="twitter"></i
+              ></a>
+              <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a href="#" aria-label="Discord"
+                ><i data-lucide="message-circle"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap glass reveal">
+            <form id="contact-form" novalidate aria-label="Contact form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Jane Smith"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                  />
+                  <span
+                    class="form-error"
+                    role="alert"
+                    aria-live="polite"
+                  ></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="jane@company.com"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                  />
+                  <span
+                    class="form-error"
+                    role="alert"
+                    aria-live="polite"
+                  ></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="company">Company (optional)</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Acme Corp"
+                  autocomplete="organization"
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option>General enquiry</option>
+                  <option>Enterprise pricing</option>
+                  <option>Technical support</option>
+                  <option>Partnership</option>
+                  <option>Press & media</option>
+                </select>
+                <span class="form-error" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us about your use case…"
+                  required
+                  aria-required="true"
+                ></textarea>
+                <span class="form-error" role="alert" aria-live="polite"></span>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-full glow-btn"
+                id="submit-btn"
+              >
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loading" aria-hidden="true" hidden
+                  ><i data-lucide="loader-2"></i> Sending…</span
+                >
+                <i data-lucide="send" class="btn-icon"></i>
+              </button>
+              <div id="form-success" class="form-success" hidden role="alert">
+                <i data-lucide="check-circle"></i> Message received! We'll be in
+                touch shortly.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ░░ FOOTER ░░ -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#hero" class="nav-logo" aria-label="NexusAI Home">
+              <svg viewBox="0 0 60 60" fill="none" width="32" height="32">
+                <polygon
+                  points="30,2 55,16 55,44 30,58 5,44 5,16"
+                  stroke="var(--accent)"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <text
+                  x="50%"
+                  y="54%"
+                  dominant-baseline="middle"
+                  text-anchor="middle"
+                  fill="var(--accent)"
+                  font-size="18"
+                  font-family="Syne"
+                  font-weight="800"
+                >
+                  N
+                </text>
+              </svg>
+              <span>NexusAI</span>
+            </a>
+            <p>
+              The AI infrastructure layer for the next generation of software.
+            </p>
+            <div class="footer-socials" aria-label="Social links">
+              <a href="#" aria-label="Twitter/X"
+                ><i data-lucide="twitter"></i
+              ></a>
+              <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a href="#" aria-label="Discord"
+                ><i data-lucide="message-circle"></i
+              ></a>
+            </div>
+          </div>
+
+          <nav class="footer-links" aria-label="Footer navigation">
+            <div class="footer-col">
+              <h4>Product</h4>
+              <ul role="list">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#portfolio">Case Studies</a></li>
+                <li><a href="#">Changelog</a></li>
+                <li><a href="#">Roadmap</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Developers</h4>
+              <ul role="list">
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">API Reference</a></li>
+                <li><a href="#">SDK</a></li>
+                <li><a href="#">Status Page</a></li>
+                <li><a href="#">GitHub</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul role="list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li>
+                  <a href="#">Careers <span class="badge-new">8 Open</span></a>
+                </li>
+                <li><a href="#">Press Kit</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Legal</h4>
+              <ul role="list">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Security</a></li>
+                <li><a href="#">Compliance</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="mono">© 2025 NexusAI, Inc. All rights reserved.</p>
+          <p class="mono footer-tagline">
+            Built with <span aria-label="love">♥</span> in San Francisco
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ░░ BACK TO TOP ░░ -->
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">
+      <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
